@@ -9,12 +9,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 var hero_detail_component_1 = require('./hero-detail.component');
 var hero_service_1 = require('./hero.service');
 var HeroesComponent = (function () {
     //  constructors
-    function HeroesComponent(heroService) {
+    function HeroesComponent(heroService, router) {
         this.heroService = heroService;
+        this.router = router;
     }
     //  functions
     HeroesComponent.prototype.ngOnInit = function () {
@@ -27,6 +29,9 @@ var HeroesComponent = (function () {
         var _this = this;
         this.heroService.getHeroes().then(function (heroes) { return _this.heroes = heroes; });
     };
+    HeroesComponent.prototype.goToDetail = function () {
+        this.router.navigate(['/detail', this.selectedHero.id]);
+    };
     HeroesComponent = __decorate([
         core_1.Component({
             selector: 'my-heroes',
@@ -34,7 +39,7 @@ var HeroesComponent = (function () {
             directives: [hero_detail_component_1.HeroDetailComponent],
             styleUrls: ['./styles.css']
         }), 
-        __metadata('design:paramtypes', [hero_service_1.HeroService])
+        __metadata('design:paramtypes', [hero_service_1.HeroService, router_1.Router])
     ], HeroesComponent);
     return HeroesComponent;
 }());
