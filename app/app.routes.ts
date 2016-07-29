@@ -1,6 +1,6 @@
 import { provideRouter, RouterConfig }  from '@angular/router';
-import { HeroesComponent } from './heroes.component';
-import { DashboardComponent } from './dashboard.component'
+import { HeroesComponent }              from './heroes.component';
+import { DashboardComponent }           from './dashboard.component'
 
 const routes: RouterConfig = [
     {
