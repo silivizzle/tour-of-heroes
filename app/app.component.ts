@@ -12,10 +12,16 @@ import { HeroService } from './hero.service';
 })
 
 export class AppComponent implements OnInit {
+
+    //  properties
     title = 'Tour of Heroes';
     heroes: Hero[];
     selectedHero: Hero;
+
+    //  constructors
     constructor(private heroService: HeroService) { }
+
+    //  functions
     ngOnInit() {
         this.getHeroes();
     }
