@@ -4,7 +4,7 @@ var heroes_component_1 = require('./heroes.component');
 var routes = [
     {
         path: '',
-        redirectTo: 'heroes',
+        redirectTo: 'dashboard',
         pathMatch: 'full'
     },
     {

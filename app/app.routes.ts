@@ -4,7 +4,7 @@ import { HeroesComponent } from './heroes.component';
 const routes: RouterConfig = [
     {
         path: '',
-        redirectTo: 'heroes',
+        redirectTo: 'dashboard',
         pathMatch: 'full'
     },
     {
