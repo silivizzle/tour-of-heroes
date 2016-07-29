@@ -10,11 +10,17 @@ import { HeroService }                  from './hero.service';
 
 export class HeroDetailComponent implements OnInit, OnDestroy {
 
+    // properties
+    hero: Hero;
+    sub: any;
+
+    // constructor
     constructor(
         private heroService: HeroService,
         private route: ActivatedRoute
     ) { }
 
+    // functions
     ngOnInit() {
         this.sub = this.route.params.subscribe(params => {
         let id = +params['id'];
@@ -22,9 +28,10 @@ export class HeroDetailComponent implements OnInit, OnDestroy {
             .then(hero => this.hero = hero);
         });
     }
-
     ngOnDestroy() {
         this.sub.unsubscribe();
     }
-    hero: Hero;
+    goBack() {
+        window.history.back();
+    }
 }

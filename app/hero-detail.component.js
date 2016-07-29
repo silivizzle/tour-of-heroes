@@ -12,10 +12,12 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var hero_service_1 = require('./hero.service');
 var HeroDetailComponent = (function () {
+    // constructor
     function HeroDetailComponent(heroService, route) {
         this.heroService = heroService;
         this.route = route;
     }
+    // functions
     HeroDetailComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.sub = this.route.params.subscribe(function (params) {
@@ -26,6 +28,9 @@ var HeroDetailComponent = (function () {
     };
     HeroDetailComponent.prototype.ngOnDestroy = function () {
         this.sub.unsubscribe();
+    };
+    HeroDetailComponent.prototype.goBack = function () {
+        window.history.back();
     };
     HeroDetailComponent = __decorate([
         core_1.Component({
