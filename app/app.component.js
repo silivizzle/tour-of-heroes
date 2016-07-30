@@ -19,6 +19,7 @@ var AppComponent = (function () {
         core_1.Component({
             selector: 'my-app',
             templateUrl: 'app/app.component.html',
+            styleUrls: ['app/app.component.css'],
             directives: [router_1.ROUTER_DIRECTIVES],
             providers: [
                 hero_service_1.HeroService
