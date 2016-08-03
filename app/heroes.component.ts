@@ -5,10 +5,10 @@ import { HeroDetailComponent }      from './hero-detail.component';
 import { HeroService }              from './hero.service';
 
 @Component({
-    selector: 'my-heroes',
-    templateUrl: 'app/heroes.component.html',
-    directives: [ HeroDetailComponent ],
-    styleUrls: ['app/heroes.component.css']
+    selector:       'my-heroes',
+    templateUrl:    'app/heroes.component.html',
+    styleUrls:      [ 'app/heroes.component.css' ],
+    directives:     [ HeroDetailComponent ]
 })
 
 export class HeroesComponent implements OnInit {
@@ -16,6 +16,7 @@ export class HeroesComponent implements OnInit {
     //  properties
     heroes: Hero[];
     selectedHero: Hero;
+    error: any;
 
     //  constructors
     constructor(

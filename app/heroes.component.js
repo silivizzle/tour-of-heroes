@@ -36,8 +36,8 @@ var HeroesComponent = (function () {
         core_1.Component({
             selector: 'my-heroes',
             templateUrl: 'app/heroes.component.html',
-            directives: [hero_detail_component_1.HeroDetailComponent],
-            styleUrls: ['app/heroes.component.css']
+            styleUrls: ['app/heroes.component.css'],
+            directives: [hero_detail_component_1.HeroDetailComponent]
         }), 
         __metadata('design:paramtypes', [hero_service_1.HeroService, router_1.Router])
     ], HeroesComponent);
