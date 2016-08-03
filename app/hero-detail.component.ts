@@ -4,9 +4,9 @@ import { Hero }                                                         from './
 import { HeroService }                                                  from './hero.service';
 
 @Component({
-    selector: 'my-hero-detail',
-    templateUrl: 'app/hero-detail.component.html',
-    styleUrls: [ 'app/hero-detail.component.css' ]
+    selector:       'my-hero-detail',
+    templateUrl:    'app/hero-detail.component.html',
+    styleUrls:      [ 'app/hero-detail.component.css' ]
 })
 
 export class HeroDetailComponent implements OnInit, OnDestroy {
@@ -52,7 +52,7 @@ export class HeroDetailComponent implements OnInit, OnDestroy {
     ngOnDestroy() {
         this.sub.unsubscribe();
     }
-    
+
     goBack(savedHero: Hero = null) {
         this.close.emit(savedHero);
         if (this.navigated) { window.history.back(); }
