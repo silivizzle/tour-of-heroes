@@ -24,9 +24,16 @@ var HeroDetailComponent = (function () {
     HeroDetailComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.sub = this.route.params.subscribe(function (params) {
-            var id = +params['id'];
-            _this.heroService.getHero(id)
-                .then(function (hero) { return _this.hero = hero; });
+            if (params['id'] !== undefined) {
+                var id = +params['id'];
+                _this.navigated = true;
+                _this.heroService.getHero(id)
+                    .then(function (hero) { return _this.hero = hero; });
+            }
+            else {
+                _this.navigated = false;
+                _this.hero = new hero_1.Hero();
+            }
         });
     };
     HeroDetailComponent.prototype.ngOnDestroy = function () {
