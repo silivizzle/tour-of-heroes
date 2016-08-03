@@ -36,11 +36,25 @@ var HeroDetailComponent = (function () {
             }
         });
     };
+    HeroDetailComponent.prototype.save = function () {
+        var _this = this;
+        this.heroService
+            .save(this.hero)
+            .then(function (hero) {
+            _this.hero = hero;
+            _this.goBack(hero);
+        })
+            .catch(function (error) { return _this.error = error; });
+    };
     HeroDetailComponent.prototype.ngOnDestroy = function () {
         this.sub.unsubscribe();
     };
-    HeroDetailComponent.prototype.goBack = function () {
-        window.history.back();
+    HeroDetailComponent.prototype.goBack = function (savedHero) {
+        if (savedHero === void 0) { savedHero = null; }
+        this.close.emit(savedHero);
+        if (this.navigated) {
+            window.history.back();
+        }
     };
     __decorate([
         core_1.Input(), 

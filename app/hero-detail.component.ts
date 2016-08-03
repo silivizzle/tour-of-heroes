@@ -38,10 +38,20 @@ export class HeroDetailComponent implements OnInit, OnDestroy {
             }
         });
     }
+    save() {
+        this.heroService
+            .save(this.hero)
+            .then(hero => {
+                this.hero = hero;
+                this.goBack(hero);
+            })
+            .catch(error => this.error = error);
+    }
     ngOnDestroy() {
         this.sub.unsubscribe();
     }
-    goBack() {
-        window.history.back();
+    goBack(savedHero: Hero = null) {
+        this.close.emit(savedHero);
+        if (this.navigated) { window.history.back(); }
     }
 }
